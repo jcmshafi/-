@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Product } from "@/types/product";
 import Image from "next/image";
 import Link from "next/link";
 
