@@ -7,8 +7,13 @@ import { Button } from "../ui/button";
 async function ProductsGrid() {
   const products = await getProducts();
 
+  // If API returns empty array → show empty UI instead of crashing
   if (!products?.length) {
-    throw new Error("No products found");
+    return (
+      <p className="mt-6 text-sm text-neutral-500">
+        No products available right now.
+      </p>
+    );
   }
 
   return (
@@ -30,6 +35,7 @@ function LoadingGrid() {
   );
 }
 
+
 export default function NewDropsSection() {
   return (
     <section className="mt-6 lg:mt-22.5 mb-4 lg:mb-32">
@@ -38,15 +44,14 @@ export default function NewDropsSection() {
         <h2 className="uppercase font-semibold text-[24px] leading-normal text-dark lg:text-[74px] lg:leading-[0.95] lg:max-w-147.25">
           DON’T MISS OUT <br /> NEW DROPS
         </h2>
-        <Button
-          className="px-4 lg:px-8 py-2 bg-[#4A69E2] text-white text-sm font-medium uppercase rounded-2xl"
-        >
+
+        <Button className="px-4 lg:px-8 py-2 bg-[#4A69E2] text-white text-sm font-medium uppercase rounded-2xl">
           SHOP NOW
         </Button>
       </div>
 
+      {/* STREAMING PRODUCTS */}
       <Suspense fallback={<LoadingGrid />}>
-        {/* @ts-expect-error Server Component */}
         <ProductsGrid />
       </Suspense>
     </section>
