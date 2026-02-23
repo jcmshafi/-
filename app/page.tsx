@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import NewDropsSection from "@/components/sections/NewDropsSection";
 
 export default async function Home() {
   // const allProducts = await getProducts();
@@ -10,6 +11,7 @@ export default async function Home() {
   return (
     <>
       <Hero />
+      <NewDropsSection/>
     </>
   );
 }

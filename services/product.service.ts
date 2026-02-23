@@ -2,7 +2,10 @@ import { api } from "./api";
 import { Product, Category } from "@/types/product";
 
 export const getProducts = async (): Promise<Product[]> => {
-  const { data } = await api.get("/products");
+  const { data } = await api.get("/products", {
+    next: { revalidate: 60 },
+  });
+
   return data;
 };
 
