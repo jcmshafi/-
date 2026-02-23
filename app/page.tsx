@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import CategoriesSection from "@/components/sections/CategoriesSection";
 import NewDropsSection from "@/components/sections/NewDropsSection";
 
 export default async function Home() {
@@ -12,6 +13,7 @@ export default async function Home() {
     <>
       <Hero />
       <NewDropsSection/>
+      <CategoriesSection/>
     </>
   );
 }
